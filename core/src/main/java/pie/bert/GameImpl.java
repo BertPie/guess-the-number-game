@@ -10,13 +10,16 @@ import javax.annotation.PreDestroy;
 public class GameImpl implements Game {
     private static final Logger LOG = LoggerFactory.getLogger(GameImpl.class);
 
-    private int guessCount = 10;
     private int number;
     private int guess;
     private int smallest;
     private int biggest;
     private int remainingGuesses;
     private boolean validNumberRange = true;
+
+    @Autowired
+    @GuessCount
+    private int guessCount;
 
     @Autowired
     private NumberGenerator numberGenerator;
@@ -35,6 +38,11 @@ public class GameImpl implements Game {
     @PreDestroy
     public void preDestroy(){
         LOG.info("in Game preDestroy()");
+    }
+
+    @Override
+    public int getGuessCount() {
+        return guessCount;
     }
 
     @Override

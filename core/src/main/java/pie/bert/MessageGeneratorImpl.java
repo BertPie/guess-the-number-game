@@ -11,8 +11,6 @@ import javax.annotation.PostConstruct;
 public class MessageGeneratorImpl implements MessageGenerator {
     private static final Logger LOG = LoggerFactory.getLogger(MessageGeneratorImpl.class);
 
-    private int guessCount = 10;
-
     @Autowired
     private Game game;
 
@@ -37,7 +35,9 @@ public class MessageGeneratorImpl implements MessageGenerator {
         } else if (game.isGameLost()) {
             return "You've lost! The number was: " + game.getNumber();
         } else if (!game.isValidNumberRange()) {
-            return "Invalid number tange!";
+            return "Invalid number range!";
+        } else if (game.getRemainingGuesses() == game.getGuessCount()) {
+            return "What is your first guess?";
         } else {
             String direction = "Lower";
             if (game.getGuess() < game.getNumber()) {

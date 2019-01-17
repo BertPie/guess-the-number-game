@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import pie.bert.AppConfig;
+import pie.bert.config.AppConfig;
 import pie.bert.MessageGenerator;
 import pie.bert.NumberGenerator;
 
