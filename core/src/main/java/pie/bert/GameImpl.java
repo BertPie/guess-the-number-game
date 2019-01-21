@@ -3,11 +3,13 @@ package pie.bert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import pie.bert.qualifiers.GuessCount;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
+@Component
 public class GameImpl implements Game {
     private static final Logger LOG = LoggerFactory.getLogger(GameImpl.class);
 
@@ -18,12 +20,14 @@ public class GameImpl implements Game {
     private int remainingGuesses;
     private boolean validNumberRange = true;
 
-    @Autowired
-    @GuessCount
-    private int guessCount;
+    private final int guessCount;
+    private final NumberGenerator numberGenerator;
 
     @Autowired
-    private NumberGenerator numberGenerator;
+    public GameImpl(@GuessCount int guessCount, NumberGenerator numberGenerator) {
+        this.guessCount = guessCount;
+        this.numberGenerator = numberGenerator;
+    }
 
     @PostConstruct
     @Override
