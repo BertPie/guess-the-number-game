@@ -3,6 +3,7 @@ package pie.bert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import pie.bert.qualifiers.GuessCount;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -27,16 +28,16 @@ public class GameImpl implements Game {
     @PostConstruct
     @Override
     public void reset() {
-        smallest = 0;
-        guess = 0;
+        guess = numberGenerator.getMinNumber();
         remainingGuesses = guessCount;
+        smallest = numberGenerator.getMinNumber();
         biggest = numberGenerator.getMaxNumber();
         number = numberGenerator.next();
         LOG.debug("the number is {}", number);
     }
 
     @PreDestroy
-    public void preDestroy(){
+    public void preDestroy() {
         LOG.info("in Game preDestroy()");
     }
 
@@ -79,13 +80,13 @@ public class GameImpl implements Game {
     public void check() {
         checkValidNumberRange();
 
-        if(validNumberRange){
-            if(guess > number){
-                biggest = guess -1;
+        if (validNumberRange) {
+            if (guess > number) {
+                biggest = guess - 1;
             }
 
-            if(guess < number){
-                smallest = guess +1;
+            if (guess < number) {
+                smallest = guess + 1;
             }
         }
         remainingGuesses--;
@@ -106,7 +107,7 @@ public class GameImpl implements Game {
         return !isGameWon() && remainingGuesses <= 0;
     }
 
-    private void checkValidNumberRange(){
+    private void checkValidNumberRange() {
         validNumberRange = (guess >= smallest) && (guess <= biggest);
     }
 }

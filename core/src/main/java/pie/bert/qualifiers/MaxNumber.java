@@ -1,4 +1,4 @@
-package pie.bert;
+package pie.bert.qualifiers;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 
