@@ -1,16 +1,15 @@
 package pie.bert.console;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import pie.bert.config.GameConfig;
 
+@Slf4j
 public class Main {
-    private static final Logger LOG = LoggerFactory.getLogger(Main.class);
 
     public static void main(String[] args) {
-        LOG.info("Starting console.");
+        log.info("Starting console.");
         ConfigurableApplicationContext context = new AnnotationConfigApplicationContext(GameConfig.class);
         context.close();
     }
