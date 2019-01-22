@@ -10,7 +10,13 @@
 
 <div align="center">
     <h1>Welcome to the Number Game!</h1>
-    <a th:href="play" th:text="Play">Click to play!</a>
+
+    <a th:href="@{__${T(pie.bert.utils.GameMappings).PLAY}__}"
+       th:text="Play"
+       href="play">
+        Click to play!
+    </a>
+
 </div>
 
 </body>
