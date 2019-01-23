@@ -1,4 +1,9 @@
 <thlogic>
-    <attr sel="#footerId"
+    <!-- Fragment name -->
+    <attr sel="#footer"
           th:fragment="footerFragment"/>
+
+    <!-- Text -->
+    <attr sel="#created-by"
+          th:text="|#{game.created.by} Bert Pie.|"/>
 </thlogic>

@@ -1,12 +1,27 @@
 <thlogic>
-    <attr sel="#headId"
+    <!-- Head -->
+    <attr sel="#head"
           th:replace="~{fragments/head::headFragment}"/>
+
+    <!-- Text -->
+    <attr sel="#title"
+          th:text="#{game.title}"/>
+    <attr sel="#game-over"
+          th:text="#{game.over}"/>
+
+    <!-- Core Text -->
     <attr sel="#result"
           th:text="${__${T(pie.bert.utils.AttributesNames).RESULT_MESSAGE}__}"/>
+
+    <!-- Anchors -->
     <attr sel="#restart"
-          th:href="@{__${T(pie.bert.utils.GameMappings).RESTART}__}"/>
+          th:href="@{__${T(pie.bert.utils.GameMappings).RESTART}__}"
+          th:text="#{game.restart}"/>
     <attr sel="#home"
-          th:href="@{__${T(pie.bert.utils.GameMappings).HOME}__}"/>
+          th:href="@{__${T(pie.bert.utils.GameMappings).HOME}__}"
+          th:text="#{game.home}"/>
+
+    <!-- Footer -->
     <attr sel="#footer"
           th:replace="~{fragments/footer::footerFragment}"/>
 </thlogic>

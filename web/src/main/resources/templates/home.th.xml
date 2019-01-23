@@ -1,9 +1,19 @@
 <thlogic>
+    <!-- Head -->
     <attr sel="#headId"
           th:replace="~{fragments/head::headFragment}"/>
+
+    <!-- Text -->
+    <attr sel="#title"
+          th:text="#{game.title}"/>
+
+    <!-- Links -->
     <attr sel="#play"
           th:href="@{__${T(pie.bert.utils.GameMappings).PLAY}__}"
-          th:text="Play"/>
+          th:text="#{game.play}"/>
+
+    <!-- Footer -->
     <attr sel="#footer"
           th:replace="~{fragments/footer::footerFragment}"/>
+
 </thlogic>

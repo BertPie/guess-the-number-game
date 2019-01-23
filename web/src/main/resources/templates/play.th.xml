@@ -1,12 +1,27 @@
 <thlogic>
+    <!-- Head -->
     <attr sel="#headId"
           th:replace="~{fragments/head::headFragment}"/>
+
+    <!-- Title and messages -->
+    <attr sel="#game-title"
+          th:text="#{game.title}"/>
     <attr sel="#main-message"
           th:text="${__${T(pie.bert.utils.AttributesNames).MAIN_MESSAGE}__}"/>
     <attr sel="#result-message"
           th:text="${__${T(pie.bert.utils.AttributesNames).RESULT_MESSAGE}__}"/>
+
+
+    <!-- Form -->
     <attr sel="#game-form"
           th:action="@{__${T(pie.bert.utils.GameMappings).PLAY}__}"/>
+    <attr sel="#guess-label"
+          th:text="#{game.guess.label}"/>
+    <attr sel="#submit"
+          th:value="#{game.submit}"/>
+
+    <!-- Footer -->
     <attr sel="#footer"
           th:replace="~{fragments/footer::footerFragment}"/>
+
 </thlogic>
