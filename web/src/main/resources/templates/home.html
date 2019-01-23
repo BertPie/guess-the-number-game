@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-<head>
+<head th:replace="~{fragments/head::headFragment}">
     <meta charset="UTF-8">
-    <title>Guess the Number</title>
+    <title>Title content</title>
 </head>
 
 <body>
@@ -11,11 +11,17 @@
 <div align="center">
     <h1>Welcome to the Number Game!</h1>
 
-    <a th:href="@{__${T(pie.bert.utils.GameMappings).PLAY}__}"
-       th:text="Play"
-       href="play">
-        Click to play!
-    </a>
+    <h3>
+        <a th:href="@{__${T(pie.bert.utils.GameMappings).PLAY}__}"
+           th:text="Play"
+           href="play">
+            Click to play!
+        </a>
+    </h3>
+
+    <footer th:replace="~{fragments/footer::footerFragment}">
+        <p>Created by me.</p>
+    </footer>
 
 </div>
 

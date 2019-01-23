@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-<head>
+<head th:replace="~{fragments/head::headFragment}">
     <meta charset="UTF-8">
-    <title>Guess the Number</title>
+    <title>Game title</title>
 </head>
 
 <body>
@@ -19,7 +19,7 @@
         <input type="submit" value="Submit">
     </form>
 
-    <footer>
+    <footer th:replace="~{fragments/footer::footerFragment}">
         <p>Created by me.</p>
     </footer>
 

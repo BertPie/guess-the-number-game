@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-<head>
+<head th:replace="~{fragments/head::headFragment}">
     <meta charset="UTF-8">
-    <title>Guess the Number</title>
+    <title>Game title</title>
 </head>
 
 <body>
@@ -15,7 +15,7 @@
     <h3><a th:href="@{__${T(pie.bert.utils.GameMappings).RESTART}__}" href="restart">Restart the Game</a></h3>
     <h3><a th:href="@{__${T(pie.bert.utils.GameMappings).HOME}__}" href="home">Home</a></h3>
 
-    <footer>
+    <footer th:replace="~{fragments/footer::footerFragment}">
         <p>Created by me.</p>
     </footer>
 
