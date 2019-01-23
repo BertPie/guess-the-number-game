@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 
-<head th:replace="~{fragments/head::headFragment}">
+<head id="headId">
     <meta charset="UTF-8">
     <title>Game title</title>
 </head>
@@ -10,16 +10,16 @@
 
 <div align="center">
     <h1>Guess the Number Game!</h1>
-    <h3 th:text="${__${T(pie.bert.utils.AttributesNames).MAIN_MESSAGE}__}">Main Message Content</h3>
-    <h3 th:text="${__${T(pie.bert.utils.AttributesNames).RESULT_MESSAGE}__}">Result Message Content</h3>
+    <h3 id="main-message">Main Message Content</h3>
+    <h3 id="result-message">Result Message Content</h3>
 
-    <form th:action="@{__${T(pie.bert.utils.GameMappings).PLAY}__}" action="play" method="post">
+    <form id="game-form" action="play" method="post">
         <label for="guess">Enter your guess</label>
         <input id="guess" type="number" name="guess" autofocus/>
         <input type="submit" value="Submit">
     </form>
 
-    <footer th:replace="~{fragments/footer::footerFragment}">
+    <footer id="footer">
         <p>Created by me.</p>
     </footer>
 
