@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Guess the Number</title>
+</head>
+
+<body>
+
+<div align="center">
+    <h1>Guess the Number Game!</h1>
+    <h2>GAME OVER</h2>
+    <h3 th:text="${__${T(pie.bert.utils.AttributesNames).RESULT_MESSAGE}__}">Here be game result, argh!</h3>
+    <h3><a th:href="@{__${T(pie.bert.utils.GameMappings).RESTART}__}" href="restart">Restart the Game</a></h3>
+    <h3><a th:href="@{__${T(pie.bert.utils.GameMappings).HOME}__}" href="home">Home</a></h3>
+
+    <footer>
+        <p>Created by me.</p>
+    </footer>
+
+</div>
+
+</body>
+
+</html>

@@ -42,4 +42,18 @@ public class GameController {
         gameService.checkGuess(guess);
         return GameMappings.REDIRECT_PLAY;
     }
+
+    @GetMapping(GameMappings.RESTART)
+    public String restart(){
+        log.info("Restarting the game.");
+        gameService.reset();
+        return GameMappings.REDIRECT_PLAY;
+    }
+
+    @GetMapping(GameMappings.GAME_OVER)
+    public String gameOver(Model model){
+        log.info("Game over view");
+        model.addAttribute(AttributesNames.RESULT_MESSAGE, gameService.getResultMessage());
+        return ViewNames.GAME_OVER;
+    }
 }
